@@ -3,6 +3,8 @@ A way to trigger the AzureLetsEncryptRenewer webjob while running on a free plan
 
 Azure Function Application Settings needed to configure:
 
+* ```TimerCRONInterval```: A valid Azure Functions Timer Trigger CRON expression.  See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer
+
 * ```WebAppName```: The name of the webapp where the webjob is housed.  Typically {whatgoeshere}.azurewebsites.net.
 
 * ```WebJobName```: The name of the webjob. This is readily accessible from the webjobs screen in the portal.

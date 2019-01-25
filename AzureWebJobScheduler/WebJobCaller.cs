@@ -11,7 +11,7 @@ namespace AzureLetsEncryptRenewerScheduler
     public static class WebJobCaller
     {
         [FunctionName("WebJobCaller")]
-        public static async Task RunAsync([TimerTrigger("0 12 4 1 */1 *")]TimerInfo myTimer, ILogger log)
+        public static async Task RunAsync([TimerTrigger("%TimerCRONInterval%")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
