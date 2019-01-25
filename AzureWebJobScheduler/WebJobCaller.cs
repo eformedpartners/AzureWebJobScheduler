@@ -21,9 +21,11 @@ namespace AzureLetsEncryptRenewerScheduler
 
             HttpClient httpClient = new HttpClient();
 
-            string leRenewerAppName = Environment.GetEnvironmentVariable("LetsEncryptRenewerWebApp");
+            string appName = Environment.GetEnvironmentVariable("WebAppName");
 
-            string webhookAddress = $"https://{leRenewerAppName}.scm.azurewebsites.net/api/triggeredwebjobs/ssl-renewer/run";
+            string webJobName = Environment.GetEnvironmentVariable("WebJobName");
+
+            string webhookAddress = $"https://{appName}.scm.azurewebsites.net/api/triggeredwebjobs/{webJobName}/run";
 
             var request = new HttpRequestMessage(HttpMethod.Post, webhookAddress);
             var byteArray = Encoding.ASCII.GetBytes($"{webJobUser}:{webJobPw}");
